@@ -1,0 +1,13 @@
+---
+import { getEntry } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const entry = await getEntry("about", "index");
+const { Content } = await entry.render();
+---
+
+<BaseLayout title={entry.data.title} sideBarActiveItemID="about">
+  <div class="prose max-w-none">
+    <Content />
+  </div>
+</BaseLayout>
